@@ -25,8 +25,11 @@
 	},
 	"dependencies": {
 		"@derhuerst/location": "^1.0.0",
+		"chalk": "^2.3.2",
 		"cli-autocomplete": "^0.4.1",
+		"cli-table2": "^0.2.0",
 		"date-prompt": "^0.7.0",
+		"ms": "^2.1.1",
 		"multiselect-prompt": "^0.3.1",
 		"number-prompt": "^0.2.0",
 		"parse-messy-time": "^2.1.0",
