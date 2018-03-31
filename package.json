@@ -42,13 +42,5 @@
 	},
 	"peerDependencies": {
 		"hafas-client": "^3.0.0"
-	},
-	"devDependencies": {
-		"tap-min": "^1.2.2",
-		"tape": "^4.8.0"
-	},
-	"scripts": {
-		"test": "env NODE_ENV=dev node test.js | tap-min",
-		"prepublishOnly": "npm test"
 	}
 }
