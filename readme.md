@@ -1,9 +1,8 @@
 # hafas-cli
 
-**Boilerplate for modules I write.**
+**Build a command line interface for any HAFAS endpoint.** Pass in a [`hafas-client`](https://github.com/public-transport/hafas-client)-compatible API client, get tools to build a command line interface.
 
 [![npm version](https://img.shields.io/npm/v/hafas-cli.svg)](https://www.npmjs.com/package/hafas-cli)
-[![build status](https://api.travis-ci.org/derhuerst/hafas-cli.svg?branch=master)](https://travis-ci.org/derhuerst/hafas-cli)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/hafas-cli.svg)
 [![chat with me on Gitter](https://img.shields.io/badge/chat%20with%20me-on%20gitter-512e92.svg)](https://gitter.im/derhuerst)
 [![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
@@ -18,9 +17,7 @@ npm install hafas-cli
 
 ## Usage
 
-```js
-todo
-```
+Check e.g. [`vbb-cli`](https://github.com/derhuerst/vbb-cli).
 
 
 ## Contributing
