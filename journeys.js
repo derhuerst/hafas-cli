@@ -67,10 +67,10 @@ const setup = (hafas, opt = {}) => {
 		}
 
 		// nr of journeys
-		if (opt.queryResults) {
+		if (cfg.queryResults) {
 			results = yield queryResults('How many journeys?', 4)
 		} else {
-			results = opt.results || 4
+			results = cfg.results || 4
 		}
 
 		// means of transport
