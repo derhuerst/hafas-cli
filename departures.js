@@ -18,6 +18,7 @@ const locate = pify(queryLocation)
 
 const defaults = {
 	productColor: p => '#888888',
+	productSymbol: p => null,
 	lineColor: l => '#888888'
 }
 
