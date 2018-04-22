@@ -18,12 +18,21 @@ const locate = pify(queryLocation)
 
 const defaults = {
 	productColor: p => '#888888',
-	productSymbol: p => null,
 	lineColor: l => '#888888'
 }
 
+const createProductSymbol = (hafas) => {
+	const products = Object.create(null)
+	for (let p of hafas.profile.products) products[p.id] = p
+
+	const productSymbol = p => products[p] && products[p].short || null
+	return productSymbol
+}
+
 const setup = (hafas, opt = {}) => {
-	opt = Object.assign({}, defaults, opt)
+	opt = Object.assign({
+		productSymbol: createProductSymbol(hafas)
+	}, defaults, opt)
 
 	const parseWhen = _parseWhen(hafas, opt)
 	const parseProducts = _parseProducts(hafas, opt)
