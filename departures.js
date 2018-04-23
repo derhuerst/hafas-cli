@@ -67,7 +67,7 @@ const setup = (hafas, opt = {}) => {
 		if (cfg.queryDuration) {
 			duration = yield queryDuration('Show departures for how many minutes?', 15)
 		} else if (cfg.duration) {
-			duration = parseDuration(cfg.duration)
+			duration = parseInt(cfg.duration)
 		} else {
 			duration = 15
 		}
