@@ -20,7 +20,9 @@ const pLocate = pify(locate)
 const defaults = {
 	productColor: p => '#888888',
 	productSymbol: p => null,
-	lineColor: l => '#888888'
+	lineColor: l => '#888888',
+	showLocationIds: false,
+	showJourneyLegIds: false
 }
 
 const setup = (hafas, opt = {}) => {

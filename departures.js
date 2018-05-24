@@ -18,7 +18,9 @@ const locate = pify(queryLocation)
 
 const defaults = {
 	productColor: p => '#888888',
-	lineColor: l => '#888888'
+	lineColor: l => '#888888',
+	showLocationIds: false,
+	showJourneyLegIds: false
 }
 
 const createProductSymbol = (hafas) => {
