@@ -27,7 +27,7 @@
 		"@derhuerst/location": "^1.0.0",
 		"chalk": "^2.3.2",
 		"cli-autocomplete": "^0.4.1",
-		"cli-table2": "github:jamestalmage/cli-table2",
+		"cli-table3": "^0.5.0",
 		"date-prompt": "^0.7.0",
 		"fptf-mode-emojis": "^0.1.0",
 		"luxon": "^1.0.0",
