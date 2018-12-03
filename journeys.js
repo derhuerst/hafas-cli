@@ -83,7 +83,7 @@ const setup = (hafas, opt = {}) => {
 		}
 
 		const journeys = yield hafas.journeys(origin, destination, {
-			when, results, products
+			departure: when, results, products
 		})
 		let journey
 		if (journeys.length === 1) journey = journeys[0]
