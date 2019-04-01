@@ -82,7 +82,7 @@ const setup = (hafas, opt = {}) => {
 			products = parseProducts(cfg.products)
 		}
 
-		const journeys = yield hafas.journeys(origin, destination, {
+		const {journeys} = yield hafas.journeys(origin, destination, {
 			departure: when, results, products
 		})
 		let journey

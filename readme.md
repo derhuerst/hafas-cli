@@ -1,6 +1,6 @@
 # hafas-cli
 
-**Build a command line interface for any HAFAS endpoint.** Pass in a [`hafas-client`](https://github.com/public-transport/hafas-client)-compatible API client, get tools to build a command line interface.
+**Build a command line interface for any HAFAS endpoint.** Pass in a [`hafas-client@4`](https://github.com/public-transport/hafas-client/tree/4)-compatible API client, get tools to build a command line interface.
 
 [![npm version](https://img.shields.io/npm/v/hafas-cli.svg)](https://www.npmjs.com/package/hafas-cli)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/hafas-cli.svg)

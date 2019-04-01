@@ -21,7 +21,7 @@
 	"bugs": "https://github.com/derhuerst/hafas-cli/issues",
 	"license": "ISC",
 	"engines": {
-		"node": ">=6"
+		"node": ">=8"
 	},
 	"dependencies": {
 		"@derhuerst/location": "^1.0.0",
@@ -41,6 +41,6 @@
 		"so": "^1.0.1"
 	},
 	"peerDependencies": {
-		"hafas-client": "^3.0.0"
+		"hafas-client": "^4.0.0"
 	}
 }
