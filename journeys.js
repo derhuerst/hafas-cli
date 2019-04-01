@@ -11,7 +11,7 @@ const _queryCloseStations = require('./lib/query-close-stations')
 const _queryLocation = require('./lib/query-location')
 const _queryWhen = require('./lib/query-when')
 const _queryProducts = require('./lib/query-products')
-const _queryResults = require('./lib/query-results')
+const _queryNrOfResults = require('./lib/query-nr-of-results')
 const _renderJourneyDetails = require('./lib/render-journey-details')
 const _queryJourney = require('./lib/query-journey')
 
@@ -34,12 +34,12 @@ const setup = (hafas, opt = {}) => {
 	const queryWhen = _queryWhen(hafas, opt)
 	const queryLocation = _queryLocation(hafas, opt)
 	const queryProducts = _queryProducts(hafas, opt)
-	const queryResults = _queryResults(hafas, opt)
+	const queryResults = _queryNrOfResults(hafas, opt)
 	const renderJourneyDetails = _renderJourneyDetails(hafas, opt)
 	const queryJourney = _queryJourney(hafas, opt)
 
 	return so(function* journeys (cfg) {
-		let origin, destination, when, results, products
+		let origin, destination, when, nrOfResults, products
 
 		// query the station of departure
 		if (cfg.origin) {
@@ -70,9 +70,9 @@ const setup = (hafas, opt = {}) => {
 
 		// nr of journeys
 		if (cfg.queryResults) {
-			results = yield queryResults('How many journeys?', 4)
+			nrOfResults = yield queryResults('How many journeys?', 4)
 		} else {
-			results = cfg.results || 4
+			nrOfResults = cfg.nrOfResults || 4
 		}
 
 		// means of transport
@@ -83,7 +83,7 @@ const setup = (hafas, opt = {}) => {
 		}
 
 		const {journeys} = yield hafas.journeys(origin, destination, {
-			departure: when, results, products
+			departure: when, results: nrOfResults, products
 		})
 		let journey
 		if (journeys.length === 1) journey = journeys[0]
