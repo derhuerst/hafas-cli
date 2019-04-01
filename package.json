@@ -1,7 +1,7 @@
 {
 	"name": "hafas-cli",
 	"description": "Build a command line interface for any HAFAS endpoint.",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"files": [
 		"departures.js",
 		"journeys.js",
@@ -36,7 +36,7 @@
 		"number-prompt": "^0.2.0",
 		"pad-right": "^0.2.2",
 		"parse-messy-time": "^2.1.0",
-		"pify": "^3.0.0",
+		"pify": "^4.0.1",
 		"select-prompt": "^0.3.1",
 		"so": "^1.0.1"
 	},
