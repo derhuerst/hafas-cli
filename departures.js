@@ -30,7 +30,7 @@ const createProductSymbol = (hafas) => {
 	return productSymbol
 }
 
-const setup = (hafas, opt = {}) => {
+const createDeparturesCLI = (hafas, opt = {}) => {
 	opt = Object.assign({
 		productSymbol: createProductSymbol(hafas)
 	}, defaults, opt)
@@ -44,7 +44,7 @@ const setup = (hafas, opt = {}) => {
 	const queryDuration = _queryDuration(hafas, opt)
 	const renderDepartures = _renderDepartures(hafas, opt)
 
-	return async function departures(cfg) {
+	return async function departuresCLI(cfg) {
 		let station, when, duration, products
 
 		if (cfg.station) {
@@ -89,4 +89,4 @@ const setup = (hafas, opt = {}) => {
 	}
 }
 
-module.exports = setup
+module.exports = createDeparturesCLI

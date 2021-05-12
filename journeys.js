@@ -24,7 +24,7 @@ const defaults = {
 	showTripIds: false
 }
 
-const setup = (hafas, opt = {}) => {
+const createJourneysCLI = (hafas, opt = {}) => {
 	opt = Object.assign({}, defaults, opt)
 
 	const parseWhen = _parseWhen(hafas, opt)
@@ -37,7 +37,7 @@ const setup = (hafas, opt = {}) => {
 	const renderJourneyDetails = _renderJourneyDetails(hafas, opt)
 	const queryJourney = _queryJourney(hafas, opt)
 
-	return async function journeys(cfg) {
+	return async function journeysCLI(cfg) {
 		let origin, destination, when, nrOfResults, products
 
 		// query the station of departure
@@ -92,4 +92,4 @@ const setup = (hafas, opt = {}) => {
 	}
 }
 
-module.exports = setup
+module.exports = createJourneysCLI
