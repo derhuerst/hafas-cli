@@ -2,7 +2,6 @@
 
 const pify = require('pify')
 const locate = require('@derhuerst/location')
-const so = require('so')
 const chalk = require('chalk')
 
 const _parseWhen = require('./lib/parse-when')
@@ -38,30 +37,30 @@ const setup = (hafas, opt = {}) => {
 	const renderJourneyDetails = _renderJourneyDetails(hafas, opt)
 	const queryJourney = _queryJourney(hafas, opt)
 
-	return so(function* journeys (cfg) {
+	return async function journeys(cfg) {
 		let origin, destination, when, nrOfResults, products
 
 		// query the station of departure
 		if (cfg.origin) {
 			origin = cfg.origin
 		} else if (cfg.useCurrentLocation) {
-			origin = yield queryCloseStations('From where?', yield pLocate())
+			origin = await queryCloseStations('From where?', await pLocate())
 		} else {
-			origin = yield queryLocation('From where?')
+			origin = await queryLocation('From where?')
 		}
 
 		// query the destination
 		if (cfg.destination) {
 			destination = cfg.destination
 		} else if (cfg.useCurrentLocation) {
-			destination = yield queryCloseStations('To where?', yield pLocate())
+			destination = await queryCloseStations('To where?', await pLocate())
 		} else {
-			destination = yield queryLocation('To where?')
+			destination = await queryLocation('To where?')
 		}
 
 		// query date & time
 		if (cfg.queryWhen) {
-			when = yield queryWhen('When?')
+			when = await queryWhen('When?')
 		} else if (cfg.when) {
 			when = parseWhen(cfg.when)
 		} else {
@@ -70,27 +69,27 @@ const setup = (hafas, opt = {}) => {
 
 		// nr of journeys
 		if (cfg.queryResults) {
-			nrOfResults = yield queryResults('How many journeys?', 4)
+			nrOfResults = await queryResults('How many journeys?', 4)
 		} else {
 			nrOfResults = cfg.nrOfResults || 4
 		}
 
 		// means of transport
 		if (cfg.queryProducts) {
-			products = yield queryProducts('Which means of transport?')
+			products = await queryProducts('Which means of transport?')
 		} else {
 			products = parseProducts(cfg.products)
 		}
 
-		const {journeys} = yield hafas.journeys(origin, destination, {
+		const {journeys} = await hafas.journeys(origin, destination, {
 			departure: when, results: nrOfResults, products
 		})
 		let journey
 		if (journeys.length === 1) journey = journeys[0]
-		else journey = yield queryJourney('Which journey?', journeys)
+		else journey = await queryJourney('Which journey?', journeys)
 
 		process.stdout.write(renderJourneyDetails(journey) + '\n')
-	})
+	}
 }
 
 module.exports = setup

@@ -2,7 +2,6 @@
 
 const pify = require('pify')
 const queryLocation = require('@derhuerst/location')
-const so = require('so')
 const chalk = require('chalk')
 
 const _parseWhen = require('./lib/parse-when')
@@ -45,20 +44,20 @@ const setup = (hafas, opt = {}) => {
 	const queryDuration = _queryDuration(hafas, opt)
 	const renderDepartures = _renderDepartures(hafas, opt)
 
-	return so(function* departures (cfg) {
+	return async function departures(cfg) {
 		let station, when, duration, products
 
 		if (cfg.station) {
 			station = cfg.station
 		} else if (cfg.useCurrentLocation) {
-			station = yield queryCloseStations('Where?', yield locate())
+			station = await queryCloseStations('Where?', await locate())
 		} else {
-			station = yield queryStation('Where?')
+			station = await queryStation('Where?')
 		}
 
 		// query date & time
 		if (cfg.queryWhen) {
-			when = yield queryWhen('When?')
+			when = await queryWhen('When?')
 		} else if (cfg.when) {
 			when = parseWhen(cfg.when)
 		} else {
@@ -67,7 +66,7 @@ const setup = (hafas, opt = {}) => {
 
 		// duration
 		if (cfg.queryDuration) {
-			duration = yield queryDuration('Show departures for how many minutes?', 15)
+			duration = await queryDuration('Show departures for how many minutes?', 15)
 		} else if (cfg.duration) {
 			duration = parseInt(cfg.duration)
 		} else {
@@ -76,18 +75,18 @@ const setup = (hafas, opt = {}) => {
 
 		// means of transport
 		if (cfg.queryProducts) {
-			products = yield queryProducts('Which means of transport?')
+			products = await queryProducts('Which means of transport?')
 		} else {
 			products = parseProducts(cfg.products)
 		}
 
-		const departures = yield hafas.departures(station, {
+		const departures = await hafas.departures(station, {
 			when, duration, products
 		})
 		if (departures.length === 0) throw new Error('No departures found.')
 
 		process.stdout.write(renderDepartures(departures) + '\n')
-	})
+	}
 }
 
 module.exports = setup
