@@ -19,7 +19,7 @@ const defaults = {
 	productColor: p => '#888888',
 	lineColor: l => '#888888',
 	showLocationIds: false,
-	showJourneyLegIds: false
+	showTripIds: false
 }
 
 const createProductSymbol = (hafas) => {

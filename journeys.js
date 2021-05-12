@@ -21,7 +21,7 @@ const defaults = {
 	productSymbol: p => null,
 	lineColor: l => '#888888',
 	showLocationIds: false,
-	showJourneyLegIds: false
+	showTripIds: false
 }
 
 const setup = (hafas, opt = {}) => {
