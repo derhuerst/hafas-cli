@@ -5,7 +5,8 @@
 	"files": [
 		"departures.js",
 		"journeys.js",
-		"lib"
+		"lib",
+		"example.js"
 	],
 	"keywords": [
 		"hafas",
@@ -40,6 +41,9 @@
 		"select-prompt": "^0.3.1"
 	},
 	"peerDependencies": {
+		"hafas-client": "^5.16.0"
+	},
+	"devDependencies": {
 		"hafas-client": "^5.16.0"
 	},
 	"scripts": {
