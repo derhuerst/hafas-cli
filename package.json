@@ -1,7 +1,7 @@
 {
 	"name": "hafas-cli",
 	"description": "Build a command line interface for any HAFAS endpoint.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"files": [
 		"departures.js",
 		"journeys.js",
@@ -9,8 +9,8 @@
 	],
 	"keywords": [
 		"hafas",
-		"public",
-		"transport",
+		"hafas-client",
+		"public transport",
 		"transit",
 		"command line",
 		"cli"
